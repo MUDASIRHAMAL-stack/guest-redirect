@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cityscape Global - Guest Mode Redirect</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "TT Norms", Arial, sans-serif;
+      color: #ffffff;
+      text-align: center;
+      background: url('YOUR_BACKGROUND_URL') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background: rgba(0, 0, 40, 0.65);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 16px;
+    }
+    .banner { width: 100%; max-width: 800px; height: auto; margin: 0 auto; }
+    .container { margin-top: 40px; text-align: center; }
+    button {
+      padding: 14px 36px; font-size: 18px; background: linear-gradient(90deg, #00CC88, #006A5A);
+      color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 600;
+      transition: 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    button:hover { opacity: 0.9; transform: translateY(-2px); }
+    .message { display: none; margin-top: 24px; font-size: 16px; line-height: 1.6; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+    @media (max-width: 768px) {
+      .banner { max-width: 100%; } .container { margin-top: 20px; }
+      button { width: 80%; font-size: 16px; padding: 12px 20px; }
+      .message { font-size: 15px; margin-top: 20px; padding: 0 10px; }
+    }
+    @media (max-width: 480px) {
+      .overlay { justify-content: center; }
+      .banner { max-width: 90%; margin-top: 20px; }
+      button { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <img src="YOUR_BANNER_URL" alt="Cityscape Global Banner" class="banner">
+    <div class="container">
+      <button id="myBadgeBtn">My Badge</button>
+      <div id="guestMessage" class="message">
+        You are accessing the event in guest mode.<br>
+        Please log in to the app to access your digital badge.<br><br>
+        Redirecting you now...
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("myBadgeBtn").addEventListener("click", function() {
+      const guestMessage = document.getElementById("guestMessage");
+      guestMessage.style.display = "block";
+      setTimeout(() => { window.location.href = "swapcard://event/cityscape-global-2025"; }, 1500);
+      setTimeout(() => { window.location.href = "https://visit.cityscapeglobal.com/event/cityscape-global-2025"; }, 4000);
+    });
+  </script>
+</body>
+</html>
